@@ -1,3 +1,9 @@
 {
-  "cSpell.words": ["Firestore", "imageurl", "persistor"]
+  "cSpell.words": [
+    "Firestore",
+    "imageurl",
+    "persistor"
+  ],
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.rightClickBehavior": "paste"
 }

@@ -41,7 +41,7 @@ const PaymentForm = () => {
       paymentIntent: { client_secret },
     } = response;
 
-    console.log(client_secret);
+    // console.log(client_secret);
 
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
@@ -55,10 +55,10 @@ const PaymentForm = () => {
     setIsProcessingPayment(false);
 
     if (paymentResult.error) {
-      alert(paymentResult.error);
+      alert(paymentResult.error.message);
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
-        alert("Payment Successful");
+        alert("Payment Successful!");
       }
     }
   };
@@ -66,13 +66,13 @@ const PaymentForm = () => {
   return (
     <PaymentFormContainer>
       <FormContainer onSubmit={paymentHandler}>
-        <h2>CRedit Card Payment: </h2>
+        <h2>Credit Card Payment: </h2>
         <CardElement />
         <PaymentButton
           isLoading={isProcessingPayment}
           buttonType={BUTTON_TYPE_CLASSES.inverted}
         >
-          Pay now
+          Pay Now
         </PaymentButton>
       </FormContainer>
     </PaymentFormContainer>
